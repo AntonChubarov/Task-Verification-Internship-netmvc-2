@@ -25,7 +25,12 @@ namespace DataLayer.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=testdb;Username=postgres;Password=Cc030789");
+            string host = "ec2-34-254-120-2.eu-west-1.compute.amazonaws.com";
+            string database = "d310f9vgu4t52t";
+            string user = "rppeqibaqtiqvz";
+            string port = "5432";
+            string password = "a6ab082300485ee445c201b6ccbcc48d9b12ed544cf75b98035e203b178de692";
+            optionsBuilder.UseNpgsql($"Host={host};Port={port};Database={database};Username={user};Password={password};SslMode=Require;Trust Server Certificate=true");
         }
     }
 }
