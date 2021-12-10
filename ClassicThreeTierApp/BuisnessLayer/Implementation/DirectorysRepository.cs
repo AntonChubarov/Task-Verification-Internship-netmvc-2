@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuisnessLayer.Implementation
 {
-    class DyrectorysRepository : IDyrectorysRepository
+    public class DirectorysRepository : IDyrectorysRepository
     {
         private PosgreContext _context;
 
-        public DyrectorysRepository(PosgreContext context)
+        public DirectorysRepository(PosgreContext context)
         {
             _context = context;
         }

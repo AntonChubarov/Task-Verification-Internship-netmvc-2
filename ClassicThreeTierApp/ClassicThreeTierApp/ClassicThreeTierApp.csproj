@@ -21,11 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BuisnessLayer\BuisnessLayer.csproj" />
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Directory\" />
   </ItemGroup>
 
 </Project>

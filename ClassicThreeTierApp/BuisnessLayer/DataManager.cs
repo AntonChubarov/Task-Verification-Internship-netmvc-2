@@ -7,7 +7,7 @@ using BuisnessLayer.Interfaces;
 
 namespace BuisnessLayer
 {
-    class DataManager
+    public class DataManager
     {
         private IDyrectorysRepository _dyrectorysRepository;
         private IMaterialsRepository _materialsRepository;
@@ -17,5 +17,8 @@ namespace BuisnessLayer
             _dyrectorysRepository = dyrectorysRepository;
             _materialsRepository = materialsRepository;
         }
+
+        public IDyrectorysRepository Dyrectorys { get { return _dyrectorysRepository; } }
+        public IMaterialsRepository Materials { get { return _materialsRepository; } }
     }
 }

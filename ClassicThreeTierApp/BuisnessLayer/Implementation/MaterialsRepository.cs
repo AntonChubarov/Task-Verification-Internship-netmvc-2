@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BuisnessLayer.Implementation
 {
-    class MaterialsRepository : IMaterialsRepository
+    public class MaterialsRepository : IMaterialsRepository
     {
         private PosgreContext _context;
 

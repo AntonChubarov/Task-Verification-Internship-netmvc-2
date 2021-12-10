@@ -7,7 +7,7 @@ using DataLayer.Models;
 
 namespace BuisnessLayer.Interfaces
 {
-    interface IMaterialsRepository
+    public interface IMaterialsRepository
     {
         IEnumerable<Material> GetAllMaterials(bool includeDirectory = false);
         Material GetMaterialById(int materialId, bool includeDirectory = false);
