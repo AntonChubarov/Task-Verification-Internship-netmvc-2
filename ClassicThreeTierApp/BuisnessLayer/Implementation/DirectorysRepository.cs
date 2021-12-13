@@ -36,10 +36,16 @@ namespace BuisnessLayer.Implementation
 
         public Directory GetDyrectoryById(int directoryId, bool includeMaterials = false)
         {
-            var directory = _context.Directories.Find(directoryId);
-            if (!includeMaterials)
+            var directory = new Directory();
+            if (includeMaterials)
             {
-                directory.Materials = null;
+                directory = _context.Directories
+                    .Include(m => m.Materials)
+                    .Where(d => d.Id == directoryId).FirstOrDefault();
+            }
+            else
+            {
+                directory = _context.Directories.Where(d => d.Id == directoryId).FirstOrDefault();
             }
             return directory;
         }
