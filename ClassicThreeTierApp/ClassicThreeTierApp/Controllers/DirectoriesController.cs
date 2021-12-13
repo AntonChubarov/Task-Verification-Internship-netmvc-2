@@ -7,32 +7,34 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BuisnessLayer.Implementation;
 using DataLayer.Models;
-using BuisnessLayer;
+using BuisnessLayer.Interfaces;
 
 namespace ClassicThreeTierApp.Controllers
 {
-    [Route("Directories")]
+    //[Route("Directories")]
     public class DirectoriesController : Controller
     {
-        private DataManager _dataManager;
+        private IDataManager _dataManager;
 
-        public DirectoriesController(DataManager dataManager)
+        public DirectoriesController(IDataManager dataManager)
         {
             _dataManager = dataManager;
         }
 
         // GET: Directories
         [HttpGet]
-        public async Task<IActionResult> Index()
+        [Route("Directories")]
+        public IActionResult Index()
         {
-            return View(_dataManager.Dyrectorys.GetAllDirectories());
+            return View(_dataManager.GetAllDirectories());
         }
 
         // GET: Directories/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    return View(_repository.GetDyrectoryById((int)id, true));
-        //}
+        [Route("Directories/Details/{id?}")]
+        public IActionResult Details(int? id)
+        {
+            return View(_dataManager.GetDyrectoryById((int)id, true));
+        }
 
         // GET: Directories/Create
         //public IActionResult Create()

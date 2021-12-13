@@ -10,6 +10,8 @@ namespace DataLayer.Models
 {
     public class PosgreContext : DbContext
     {
+        public PosgreContext(DbContextOptions<PosgreContext> options) : base(options) {}
+
         public DbSet<Material> Materials { get; set; }
         public DbSet<Directory> Directories { get; set; }
 
